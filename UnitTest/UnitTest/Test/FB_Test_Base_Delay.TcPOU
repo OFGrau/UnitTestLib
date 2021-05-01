@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="FB_Test_Base_Delay" Id="{e59d7c4a-e04d-4575-8e5a-1de80b51c7c7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Test_Base_Delay EXTENDS FB_UnitTestBase
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbDelay : TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+]]></ST>
+    </Implementation>
+    <Method Name="cleanup" Id="{bf46245b-2a10-4270-8cec-3e1701bea762}">
+      <Declaration><![CDATA[(******************************************************************************
+Baustein: FB_Test_Base_Delay.cleanup
+Spezifikation: doc/Spezifikation.pdf, Kap. x.y.z
+-------------------------------------------------------------------------------
+erstellt:
+von:
+Geändert:
+von:
+-------------------------------------------------------------------------------
+Beschreibung
+Diese Methode...
+
+-------------------------------------------------------------------------------
+Input
+-
+
+Output
+-
+******************************************************************************)
+METHOD PUBLIC cleanup : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+	cleanup := TRUE;
+	
+	fbDelay(IN := false);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="execute" Id="{dcfa4b97-d205-4464-a7da-bba1c1b4f6f4}">
+      <Declaration><![CDATA[(******************************************************************************
+Baustein: FB_Test_Base_Delay.execute
+Spezifikation: doc/Spezifikation.pdf, Kap. x.y.z
+-------------------------------------------------------------------------------
+erstellt:
+von:
+Geändert:
+von:
+-------------------------------------------------------------------------------
+Beschreibung
+Diese Methode...
+
+-------------------------------------------------------------------------------
+Input
+-
+
+Output
+-
+******************************************************************************)
+METHOD PUBLIC execute : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	bValue1  : BOOL;
+	bValue2  : BOOL;
+	s32Value1 : DINT;
+	s32Value2 : DINT;
+	r32Value1 : REAL;
+	r32Value2 : REAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+	fbDelay(PT := t#250ms);
+
+	bValue1 := TRUE;
+	bValue2 := TRUE;
+	assertEQUAL(bValue1, bValue2);
+
+	s32Value1 := 1593;
+	s32Value2 := 1593;
+	assertEQUAL(s32Value1, s32Value2);
+
+	r32Value1 := 5345.53245;
+	r32Value2 := 5345.53245;
+	assertEQUAL(r32Value1, r32Value2);
+
+	execute := fbDelay.Q;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="prepare" Id="{75766130-e927-4659-beb9-1c58ca136ce7}">
+      <Declaration><![CDATA[(******************************************************************************
+Baustein: FB_Test_Base_Delay.prepare
+Spezifikation: doc/Spezifikation.pdf, Kap. x.y.z
+-------------------------------------------------------------------------------
+erstellt:
+von:
+Geändert:
+von:
+-------------------------------------------------------------------------------
+Beschreibung
+Diese Methode...
+
+-------------------------------------------------------------------------------
+Input
+-
+
+Output
+-
+******************************************************************************)
+METHOD PUBLIC prepare : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+	prepare := TRUE;
+	
+	fbDelay.IN := true;]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Test_Base_Delay">
+      <LineId Id="25" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Test_Base_Delay.cleanup">
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="48" Count="1" />
+    </LineIds>
+    <LineIds Name="FB_Test_Base_Delay.execute">
+      <LineId Id="76" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="35" Count="1" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="44" Count="1" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Test_Base_Delay.prepare">
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="48" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
